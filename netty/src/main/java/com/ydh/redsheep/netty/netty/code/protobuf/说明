@@ -1,0 +1,1 @@
+.proto文件进行描述，然后通过protoc.exe编译器，比较麻烦，这里不错距离。基本上还是使用protostuff
