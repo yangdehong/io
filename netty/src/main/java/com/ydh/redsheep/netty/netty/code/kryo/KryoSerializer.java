@@ -5,7 +5,7 @@ import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;
 import com.esotericsoftware.kryo.serializers.DefaultSerializers;
 import com.esotericsoftware.kryo.util.Pool;
-import com.ydh.redsheep.io.netty.model.MessageBO;
+import com.ydh.redsheep.netty.netty.model.MessageBO;
 import de.javakaffee.kryoserializers.*;
 import io.netty.buffer.ByteBuf;
 

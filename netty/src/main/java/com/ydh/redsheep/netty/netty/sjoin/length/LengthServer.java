@@ -1,6 +1,6 @@
 package com.ydh.redsheep.netty.netty.sjoin.length;
 
-import com.ydh.redsheep.io.netty.util.Constants;
+import com.ydh.redsheep.netty.netty.util.Constants;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;

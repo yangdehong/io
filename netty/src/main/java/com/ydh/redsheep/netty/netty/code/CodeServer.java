@@ -1,9 +1,12 @@
 package com.ydh.redsheep.netty.netty.code;
 
-import com.ydh.redsheep.io.netty.code.protostuff.ProtostuffDecoder;
-import com.ydh.redsheep.io.netty.code.protostuff.ProtostuffEncoder;
-import com.ydh.redsheep.io.netty.model.MessageBO;
-import com.ydh.redsheep.io.netty.util.Constants;
+import com.ydh.redsheep.netty.netty.code.fastjson.RpcDecoder;
+import com.ydh.redsheep.netty.netty.code.fastjson.RpcEncoder;
+import com.ydh.redsheep.netty.netty.code.fastjson.serializer.JSONSerializer;
+import com.ydh.redsheep.netty.netty.code.protostuff.ProtostuffDecoder;
+import com.ydh.redsheep.netty.netty.code.protostuff.ProtostuffEncoder;
+import com.ydh.redsheep.netty.netty.model.MessageBO;
+import com.ydh.redsheep.netty.netty.util.Constants;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -66,8 +69,10 @@ public class CodeServer {
 //                            sc.pipeline().addLast("decoder", new KryoDecoder());
 //                            sc.pipeline().addLast("encoder", new KryoEncoder());
                             // protostuff
-                            sc.pipeline().addLast("decoder", new ProtostuffDecoder(MessageBO.class));
-                            sc.pipeline().addLast("encoder", new ProtostuffEncoder(MessageBO.class));
+//                            sc.pipeline().addLast("decoder", new ProtostuffDecoder(MessageBO.class));
+//                            sc.pipeline().addLast("encoder", new ProtostuffEncoder(MessageBO.class));
+                            sc.pipeline().addLast("decoder", new RpcDecoder(MessageBO.class, new JSONSerializer()));
+                            sc.pipeline().addLast("encoder", new RpcEncoder(MessageBO.class, new JSONSerializer()));
                             sc.pipeline().addLast(new CodeServerHandler());
                         }
                     });
